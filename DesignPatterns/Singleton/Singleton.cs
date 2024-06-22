@@ -23,9 +23,12 @@ namespace Singleton
         {
             get
             {
-                lock (obj)
+                if (instance == null)
                 {
-                    instance ??= new Singleton();
+                    lock (obj)
+                    {
+                        instance ??= new Singleton();
+                    }
                 }
                 return instance;
             }
