@@ -13,6 +13,7 @@ namespace Singleton
         private Singleton()
         {
             Counter++;
+            Console.WriteLine($"counter {Counter}");
         }
         private static Singleton instance;
 
@@ -21,7 +22,6 @@ namespace Singleton
 
         public void PrintMessage(string message)
         {
-            Console.WriteLine($"counter {Counter}");
             Console.WriteLine($"Received {message}");
         }
     }
