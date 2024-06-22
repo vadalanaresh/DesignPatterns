@@ -14,8 +14,10 @@ namespace Singleton
         {
             Counter++;
         }
+        private static Singleton instance;
 
-        public static Singleton GetInstance { get; } = new Singleton();
+        //Object is initialize whenever the object is initialized it is called LazyLoading
+        public static Singleton GetInstance => instance = instance ?? new Singleton();
 
         public void PrintMessage(string message)
         {
