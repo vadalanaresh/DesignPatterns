@@ -9,16 +9,14 @@ namespace Singleton
     public class Singleton
     {
         private static int Counter = 0;
-        private static Singleton instance = new Singleton();
+
         private Singleton()
         {
             Counter++;
         }
 
-        public static Singleton GetInstance()
-        {
-            return instance;
-        }
+        public static Singleton GetInstance { get; } = new Singleton();
+
         public void PrintMessage(string message)
         {
             Console.WriteLine($"counter {Counter}");
