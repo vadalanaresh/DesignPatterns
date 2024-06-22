@@ -17,22 +17,9 @@ namespace Singleton
             Counter++;
             Console.WriteLine($"counter {Counter}");
         }
-        private static Singleton instance;
+        private static readonly Singleton instance = new Singleton();
 
-        public static Singleton GetInstance
-        {
-            get
-            {
-                if (instance == null)
-                {
-                    lock (obj)
-                    {
-                        instance ??= new Singleton();
-                    }
-                }
-                return instance;
-            }
-        }
+        public static Singleton GetInstance => instance;
 
         public void PrintMessage(string message)
         {
