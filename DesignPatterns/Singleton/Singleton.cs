@@ -17,9 +17,10 @@ namespace Singleton
             Counter++;
             Console.WriteLine($"counter {Counter}");
         }
-        private static readonly Singleton instance = new Singleton();
-
-        public static Singleton GetInstance => instance;
+        //Egar initialization with lazy
+        //CLR takes care of thread safe 
+        private static readonly Lazy<Singleton> instance = new Lazy<Singleton>(new Singleton());
+        public static Singleton GetInstance => instance.Value;
 
         public void PrintMessage(string message)
         {
